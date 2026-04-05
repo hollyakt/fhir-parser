@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+.env
+venv/
+data/synthea/
+data/parsed/
+results/
+figures/
+.DS_Store
+.ipynb_checkpoints/

@@ -1,0 +1,77 @@
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "entry": [
+    {
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-001",
+        "gender": "female",
+        "birthDate": "1985-03-14",
+        "address": [{"city": "Boston", "state": "MA"}],
+        "maritalStatus": {"text": "Married"}
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-001",
+        "subject": {"reference": "urn:uuid:patient-001"},
+        "code": {
+          "coding": [{
+            "system": "http://snomed.info/sct",
+            "code": "44054006",
+            "display": "Type 2 Diabetes Mellitus"
+          }]
+        },
+        "clinicalStatus": {"coding": [{"code": "active"}]},
+        "onsetDateTime": "2018-06-01"
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "med-001",
+        "subject": {"reference": "urn:uuid:patient-001"},
+        "status": "active",
+        "intent": "order",
+        "authoredOn": "2018-06-15",
+        "medicationCodeableConcept": {
+          "coding": [{
+            "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+            "code": "860975",
+            "display": "Metformin 500 MG Oral Tablet"
+          }]
+        }
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-001",
+        "subject": {"reference": "urn:uuid:patient-001"},
+        "status": "final",
+        "effectiveDateTime": "2023-11-01",
+        "code": {
+          "coding": [{
+            "system": "http://loinc.org",
+            "code": "4548-4",
+            "display": "Hemoglobin A1c/Hemoglobin.total in Blood"
+          }]
+        },
+        "valueQuantity": {"value": 8.2, "unit": "%"}
+      }
+    },
+    {
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "enc-001",
+        "subject": {"reference": "urn:uuid:patient-001"},
+        "status": "finished",
+        "class": {"code": "AMB"},
+        "type": [{"coding": [{"display": "Outpatient Visit"}]}],
+        "period": {"start": "2023-11-01T09:00:00", "end": "2023-11-01T09:45:00"}
+      }
+    }
+  ]
+}
