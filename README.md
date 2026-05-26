@@ -45,7 +45,7 @@ pip install -r requirements.txt
 
 ```bash
 # Parse a directory of FHIR JSON files
-python src/parse.py --input data/synthea/ --output data/parsed/
+python src/parser.py --input data/synthea/ --output data/parsed/
 
 # Generate analytics
 python src/analyze.py --data data/parsed/ --output results/
@@ -73,13 +73,11 @@ streamlit run app/dashboard.py
 fhir-parser/
 ├── src/
 │   ├── parser.py     # FHIR bundle parser
-│   ├── analyze.py    # Population analytics
-│   └── models.py     # Pydantic data models
+│   └── analyze.py    # Population analytics
 ├── app/
 │   └── dashboard.py  # Streamlit analytics dashboard
-├── data/sample/      # Sample FHIR JSON files
+├── data/              # FHIR JSON inputs (not tracked)
 ├── notebooks/
-│   └── 01_fhir_analytics.ipynb
 ├── requirements.txt
 └── README.md
 ```
